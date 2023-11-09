@@ -57,3 +57,23 @@ func (p *Train) Name() string {
 func (p *Train) Play() {
 	fmt.Println("Chugging along the tracks!")
 }
+
+// Factory
+const (
+	car   = "car"
+	train = "train"
+	plane = "plane"
+)
+
+func NewToy(kind, name string) Toy {
+	switch kind {
+	case car:
+		return NewCar(name)
+	case train:
+		return NewTrain(name)
+	case plane:
+		return NewPlane(name)
+	}
+
+	return nil
+}

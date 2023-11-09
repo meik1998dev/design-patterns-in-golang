@@ -8,7 +8,7 @@ import (
 // TestNewCar checks if NewCar returns a Car with the correct initialized name.
 func TestNewCar(t *testing.T) {
 	name := "Speedy"
-	car := NewCar(name)
+	car := NewToy(car, name)
 	if car.Name() != name {
 		t.Errorf("Expected Car name to be %s, got %s", name, car.Name())
 	}
@@ -16,7 +16,7 @@ func TestNewCar(t *testing.T) {
 
 func TestNewPlane(t *testing.T) {
 	name := "Glider"
-	plane := NewPlane(name)
+	plane := NewToy(plane, name)
 	if plane.Name() != name {
 		t.Errorf("Expected Plane name to be %s, got %s", name, plane.Name())
 	}
@@ -24,14 +24,14 @@ func TestNewPlane(t *testing.T) {
 
 func TestNewTrain(t *testing.T) {
 	name := "ChooChoo"
-	train := NewTrain(name)
+	train := NewToy(train, name)
 	if train.Name() != name {
 		t.Errorf("Expected Train name to be %s, got %s", name, train.Name())
 	}
 }
 
 func TestPlanePlay(t *testing.T) {
-	plane := NewPlane("Glider")
+	plane := NewToy(plane, "Glider")
 	output := helpers.CaptureOutput(func() {
 		plane.Play()
 	})
